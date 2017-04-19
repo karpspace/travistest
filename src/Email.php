@@ -1,6 +1,8 @@
 <?php
 
 
+require 'vendor/autoload.php';
+
 final class Email
 {
     private $email;
