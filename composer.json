@@ -1,0 +1,13 @@
+{
+    "name": "michal/travistest",
+    "authors": [
+        {
+            "name": "Michal Karpinski",
+            "email": "michal@studioskylab.com"
+        }
+    ],
+    "require": {
+        "johnpbloch/wordpress": "^4.7",
+        "phpunit/phpunit": "^6.1"
+    }
+}
