@@ -1,6 +1,8 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
+require __DIR__ . "/../src/Email.php";
+
 /**
  * @covers Email
  */
