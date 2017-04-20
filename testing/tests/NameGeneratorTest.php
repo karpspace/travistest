@@ -1,8 +1,8 @@
 <?php
 use PHPUnit\Framework\TestCase;
 
-require __DIR__ . "/../src/NameGenerator.php";
-require __DIR__ . "/../src/Exceptions/NotANumberException.php";
+//require __DIR__ . "/../src/NameGenerator.php";
+//require __DIR__ . "/../src/Exceptions/NotANumberException.php";
 
 
 class NameGeneratorTests extends TestCase
@@ -11,7 +11,13 @@ class NameGeneratorTests extends TestCase
 
     protected function setUp()
     {
-        $this->ng = new NameGenerator(100);
+
+        $fail = $this->getMockBuilder('Fail')
+                     ->setMethods(['fails'])
+                     ->getMock();
+
+        $fail->method('fails')->willReturn(true);
+        $this->ng = new NameGenerator($fail, 100);
     }
 
     protected function tearDown()
@@ -69,6 +75,11 @@ class NameGeneratorTests extends TestCase
     {
         $this->expectException(NotANumberException::class);
         $this->ng->setLength('x');
+    }
+
+    public function testFail()
+    {
+        $this->assertTrue($this->ng->fail->fails());
     }
 
 

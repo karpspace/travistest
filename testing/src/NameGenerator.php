@@ -3,23 +3,25 @@
     Class NameGenerator
     {
         public $length;
-        public $characters =  [ 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
+        public $characters =  ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z' ];
         public $name;
+        public $fail;
 
 
-        public function __construct($length, $characters = null)
+        public function __construct(Fail $fail, $length, $characters = null)
         {
             if (! is_null($characters)) {
                $this->characters = $characters;
             }
             $this->length = $length;
+            $this->fail = $fail;
         }
 
         public function generateName(){
 
             $name = '';
             for ($i = 0; $i < $this->length; $i++) {
-                $name .= $this->characters[rand(0,count($this->characters)-1)];
+                $name .= $this->characters[rand(0, count($this->characters)-1)];
             }
             return $name;
         }
