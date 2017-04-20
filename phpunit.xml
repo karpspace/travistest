@@ -5,4 +5,14 @@
             <directory>./testing/tests/</directory>
         </testsuite>
     </testsuites>
+
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./testing/src</directory>
+        </whitelist>
+        <blacklist>
+            <directory suffix=".php">./testing/vendor</directory>
+            <directory suffix=".php">./testing/src/Exceptions</directory>
+        </blacklist>
+    </filter>
 </phpunit>
